@@ -1,8 +1,14 @@
 # Import the Daytona SDK
 from daytona import Daytona, DaytonaConfig
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+CHAVE = os.getenv("DAYTONA_API_KEY")
 
 # Define the configuration
-config = DaytonaConfig(api_key="dtn_72ceb3f97e586d031ba213236234fffe58f19efb30f487674f7022dfbdbb935b") # Replace with your API key
+config = DaytonaConfig(api_key=CHAVE) # Replace with your API key
 
 # Initialize the Daytona client
 daytona = Daytona(config)
