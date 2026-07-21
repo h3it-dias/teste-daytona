@@ -22,7 +22,7 @@ args = parser.parse_args()
 print(f'Shard {args.shard} processado com sucesso!')
 """
 
-# Esta função é a rotina de CADA UMA das 20 tarefas
+# Esta função é a rotina de CADA UMA das 9 tarefas
 async def run_task(daytona: AsyncDaytona, shard: int) -> str:
     # 1. Cria uma sandbox baseada no snapshot que você já deixou preparado ("my-env-snapshot")
     #    O parâmetro 'ephemeral=True' garante que ela será DELETADA quando parar.
@@ -49,11 +49,11 @@ async def main():
     # Abre o cliente assíncrono do Daytona
     async with AsyncDaytona() as daytona:
         
-        # O asyncio.gather executa 'run_task' 20 vezes EM PARALELO (de shard 0 até 19).
+        # O asyncio.gather executa 'run_task' 9 vezes EM PARALELO (de shard 0 até 8).
         # É aqui que o "Fan-out" (a explosão de sandboxes em leque) acontece na prática!
         results = await asyncio.gather(*(run_task(daytona, i) for i in range(9)))
         
-        # Exibe a lista com os resultados de todas as 20 sandboxes
+        # Exibe a lista com os resultados de todas as 9 sandboxes
         print(results)
 
 # Inicia a execução do loop assíncrono
