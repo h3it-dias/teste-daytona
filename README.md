@@ -46,7 +46,7 @@ Demonstra o encadeamento e a comunicação direta entre múltiplas sandboxes (`l
 
 ---
 
-### 3. ⚡ Snapshots e Computação Distribuída (`Snapshots/`)
+### 3. Snapshots e Computação Distribuída (`Snapshots/`)
 
 #### A. O Padrão "Snapshot Fan-out" (`snapshot_fan_out.py`)
 Utiliza o cliente assíncrono (`AsyncDaytona`) combinado com `asyncio.gather` para disparar $N$ sandboxes efêmeras em paralelo a partir de um único Snapshot base.
